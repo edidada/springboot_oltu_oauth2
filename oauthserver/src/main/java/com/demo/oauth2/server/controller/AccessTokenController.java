@@ -30,7 +30,7 @@ import com.demo.oauth2.server.untils.ControllerHelper;
 public class AccessTokenController {
 
 	private Logger logger=LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	private OauthClientService oauthClientService;
 	
@@ -67,16 +67,15 @@ public class AccessTokenController {
 
 	            //根据OAuthResponse生成ResponseEntity
 	            return new ResponseEntity(oAuthResponse.getBody(), HttpStatus.valueOf(oAuthResponse.getResponseStatus()));
-				
 			}
 			else{
 				return ControllerHelper.getResponseEntity(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.INVALID_GRANT, ErrorConstants.ERROR_AUTH_CODE);
 			}
-			
-			
+
 		} catch (Exception e) {
-			logger.error(e.getMessage(),e);
-			return ControllerHelper.getResponseEntity(HttpServletResponse.SC_BAD_REQUEST, ErrorConstants.ERROR_UNKNOW, e.getCause().getMessage());
+			e.printStackTrace();
+			logger.error(e.getMessage());
+			return ControllerHelper.getResponseEntity(HttpServletResponse.SC_BAD_REQUEST, ErrorConstants.ERROR_UNKNOW, e.getMessage());
 		}		
 	}
 }

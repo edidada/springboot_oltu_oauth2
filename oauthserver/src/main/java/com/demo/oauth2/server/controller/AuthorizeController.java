@@ -59,7 +59,8 @@ public class AuthorizeController {
 			model.put("responseType", oauthRequest.getResponseType());
 			return new ModelAndView("login",model);				
 		} catch (Exception e) {
-			logger.error(e.getCause().getMessage(),e);
+			e.printStackTrace();
+//			logger.error(e.getCause().getMessage(),e);
 		}
 		return null;
 	}
@@ -73,8 +74,7 @@ public class AuthorizeController {
 			OAuthResponse oAuthResponse;
 			String clientId=oauthRequest.getClientId();
 			//校验client信息
-			if(!oauthClientService.checkClient(clientId))
-			{
+			if(!oauthClientService.checkClient(clientId)) {
 				return ControllerHelper.getResponseEntity(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.INVALID_CLIENT, ErrorConstants.ERROR_CLIENT_MSG);				
 			}
 			//获取登陆信息
@@ -108,10 +108,9 @@ public class AuthorizeController {
             HttpHeaders headers = new HttpHeaders();
             headers.setLocation(new URI(oAuthResponse.getLocationUri()));
             return new ResponseEntity(headers, HttpStatus.valueOf(oAuthResponse.getResponseStatus()));
-			
-			
 		} catch (Exception e) {
-			logger.error(e.getCause().getMessage(),e);
+			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		return null;
 	}

@@ -4,10 +4,10 @@ spring:
  #数据库配置
   datasource: 
     name: test
-    url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1/test?useUnicode=true&characterEncoding=utf8&useSsl=false
     driver-class: com.mysql.jdbc.Driver
     username: root
-    password: admin
+    password: 5Edidada
     validationQuery: SELECT 1
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 28800

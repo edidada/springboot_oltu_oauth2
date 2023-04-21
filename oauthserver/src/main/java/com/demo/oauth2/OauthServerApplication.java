@@ -9,13 +9,13 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.demo.oauth2.*.mapper")
-public class OauthserverApplication extends SpringBootServletInitializer {
+public class OauthServerApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(OauthserverApplication.class);
+		return application.sources(OauthServerApplication.class);
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(OauthserverApplication.class, args);
+		SpringApplication.run(OauthServerApplication.class, args);
 	}
 }

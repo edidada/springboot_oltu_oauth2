@@ -23,8 +23,7 @@ public class OauthClientServiceImpl implements OauthClientService{
 		boolean res=false;
 		
 		TOAuth2Client client=oAuth2ClientMapper.selectByPrimaryKey(clientId);
-		if(client!=null&&client.getClientId().equals(clientId))
-		{
+		if(client!=null&&client.getClientId().equals(clientId)) {
 			res= true;
 		}
 		return res;
