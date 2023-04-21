@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.demo.oauth2.server.dto.OauthParam;
 
 @Controller
-public class AuthController {
+public class AuthController2 {
 	
 	 private Logger logger = LoggerFactory.getLogger(RedirectController.class);
 	
